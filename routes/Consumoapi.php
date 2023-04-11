@@ -6,28 +6,27 @@
 	$pdo = new Conexion();
 	
 	//*********************************************************************SOLICITUD GET******************************************************************************************************* */
-
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
-		if(isset($_GET['identificacion']))
-		{
-			$sql = $pdo->prepare("SELECT * FROM users WHERE identificacion=:identificacion");
+		if(isset($_GET['identificacion'])) {
+			$sql = $pdo->prepare("SELECT users.*, areas.nombre_area AS nombre_area FROM users INNER JOIN areas ON users.codigo_area=areas.codigo_area WHERE users.identificacion=:identificacion");
 			$sql->bindValue(':identificacion', $_GET['identificacion']);
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
-			header("HTTP/1.1 200 hay datos");
+			header("HTTP/1.1 200 Ok");
 			echo json_encode($sql->fetchAll());
-			exit;				
-			
-			} else {
-			
-			$sql = $pdo->prepare("SELECT * FROM users");
+			exit;
+		} else {
+			$sql = $pdo->prepare("SELECT users.*, areas.nombre_area AS nombre_area FROM users INNER JOIN areas ON users.codigo_area =areas.codigo_area ");
 			$sql->execute();
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
-			header("HTTP/1.1 200 hay datos");
+			header("HTTP/1.1 200 Ok");
 			echo json_encode($sql->fetchAll());
-			exit;		
+			exit;
 		}
 	}
+	
+	
+
 //*********************************************************************SOLICITUD GET******************************************************************************************************* */
 	
 	                         

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2023 a las 05:32:29
+-- Tiempo de generación: 11-04-2023 a las 22:42:00
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -44,25 +44,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `identificacion`, `contrasena_cifrada`, `nombre`, `apellidos`, `email`, `codigo_area`, `nombre_usuario`, `contrasena`) VALUES
-(1, 1214744309, '$2y$10$.yr2kmqjX5xcuoS92OTvi.EPL81y8dz/5ozukiXP1v9Yapcr6GUHe', 'Brehider', 'Administrador', '', 0, '', '0'),
-(3, 21870552, '$2y$10$jplvDs66sO2hHcqH3CYmZuHmCK9HCnfRfTZFtzO6.6ceAA94xw3X.', 'Felipe', 'Armani ', 'Felipe@hotmail.com', 220055, 'farmani ', '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(6) NOT NULL,
-  `Identificacion` varchar(25) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellidos` varchar(50) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `Cod_area` int(10) NOT NULL,
-  `Username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(4, 218705538, '$2y$10$yVpFxozWs5FPJBQLWoP1zOujBCO1UZ/wIQ0pqGMvUaEqMhmPUEMtm', 'Juan', 'Armani ', 'Felipe@hotmail.com', 57, 'jarmani ', ''),
+(5, 2147483647, '$2y$10$uLAGlqsHfepNq/WKvzjIJe5u9fjbiAgDkHEgvb/B/t.MP3w5buKRy', 'Mandele', 'Jornyk', 'Mandele@hotmail.com', 244, 'mjornyk', '');
 
 --
 -- Índices para tablas volcadas
@@ -73,13 +56,8 @@ CREATE TABLE `usuarios` (
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`identificacion`),
-  ADD KEY `id` (`id`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `id` (`id`),
+  ADD KEY `codigo_area` (`codigo_area`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -89,13 +67,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
